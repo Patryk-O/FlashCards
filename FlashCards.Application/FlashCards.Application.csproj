@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlashCards.Domain\FlashCards.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UseCases\Cards\GetAllCards\" />
+    <Folder Include="UseCases\Cards\RemoveCard\" />
+    <Folder Include="UseCases\Cards\UpdateCard\" />
+    <Folder Include="UseCases\Decks\GetAllDecks\" />
+    <Folder Include="UseCases\Decks\GetDeckByID\" />
+    <Folder Include="UseCases\Decks\RemoveDeck\" />
+    <Folder Include="UseCases\Decks\UpdateDeck\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

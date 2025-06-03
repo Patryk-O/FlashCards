@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.App", "FlashCards.App\FlashCards.App.csproj", "{7F40D67E-B80B-4B0A-81C9-A4FD83E66BBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.Domain", "FlashCards.Domain\FlashCards.Domain.csproj", "{50F122D7-0072-446C-857C-42897922F85C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.Application", "FlashCards.Application\FlashCards.Application.csproj", "{6ABE1FB6-436E-441D-97DA-620B48AF9333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.Infrastructure", "FlashCards.Infrastructure\FlashCards.Infrastructure.csproj", "{F6033370-817D-4E1D-B4A9-45970341A56A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.Presentation", "FlashCards.Presentation\FlashCards.Presentation.csproj", "{93EC7AD8-DCF0-4065-8B71-157E03845A79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.SharedKernel", "FlashCards.SharedKernel\FlashCards.SharedKernel.csproj", "{BA906626-327E-436C-AAFA-8F64AC8B58A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashCards.UnitTests", "FlashCards.UnitTests\FlashCards.UnitTests.csproj", "{70273EA6-3A91-4193-B8D4-200EA87FF28D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F40D67E-B80B-4B0A-81C9-A4FD83E66BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F40D67E-B80B-4B0A-81C9-A4FD83E66BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F40D67E-B80B-4B0A-81C9-A4FD83E66BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F40D67E-B80B-4B0A-81C9-A4FD83E66BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F122D7-0072-446C-857C-42897922F85C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F122D7-0072-446C-857C-42897922F85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F122D7-0072-446C-857C-42897922F85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F122D7-0072-446C-857C-42897922F85C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ABE1FB6-436E-441D-97DA-620B48AF9333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABE1FB6-436E-441D-97DA-620B48AF9333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABE1FB6-436E-441D-97DA-620B48AF9333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABE1FB6-436E-441D-97DA-620B48AF9333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6033370-817D-4E1D-B4A9-45970341A56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6033370-817D-4E1D-B4A9-45970341A56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6033370-817D-4E1D-B4A9-45970341A56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6033370-817D-4E1D-B4A9-45970341A56A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EC7AD8-DCF0-4065-8B71-157E03845A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EC7AD8-DCF0-4065-8B71-157E03845A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EC7AD8-DCF0-4065-8B71-157E03845A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EC7AD8-DCF0-4065-8B71-157E03845A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA906626-327E-436C-AAFA-8F64AC8B58A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA906626-327E-436C-AAFA-8F64AC8B58A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA906626-327E-436C-AAFA-8F64AC8B58A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA906626-327E-436C-AAFA-8F64AC8B58A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70273EA6-3A91-4193-B8D4-200EA87FF28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70273EA6-3A91-4193-B8D4-200EA87FF28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70273EA6-3A91-4193-B8D4-200EA87FF28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70273EA6-3A91-4193-B8D4-200EA87FF28D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
