@@ -5,8 +5,8 @@ namespace FlashCards.Domain.Repositories;
 public interface ICardRepository
 {
     Task AddCardAsync(Card? card);
-    Task<Card?> GetCard(Guid id);
-    Task<IEnumerable<Card>> GetAllCards();
-    Task RemoveCard(Card card);
-    Task UpdateCard(Card card);
+    Task<Card?> GetCardByIdAsync(Guid id);
+    Task<IReadOnlyCollection<Card>> GetAllCardsAsync();
+    Task RemoveCardAsync(Card card);
+    Task UpdateCardAsync(Card card);
 }

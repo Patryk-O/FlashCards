@@ -7,14 +7,8 @@ using FlashCards.Domain.ValueObject;
 
 namespace FlashCards.Application.UseCases.Decks.CreateDeck;
 
-public class CreateDeckHandler : ICommandHandler<CreateDeckCommand, Guid>
+public class CreateDeckHandler(IDeckRepository repository) : ICommandHandler<CreateDeckCommand, Guid>
 {
-    private readonly IDeckRepository _repository;
-    public CreateDeckHandler(IDeckRepository repository)
-    {
-        _repository = repository;
-    }
-
     public async Task<UseCaseResult<Guid>> Handle(CreateDeckCommand command)
     {
         if(command is null)
@@ -25,7 +19,7 @@ public class CreateDeckHandler : ICommandHandler<CreateDeckCommand, Guid>
             return UseCaseResult<Guid>.Fail(ErrorCode.Validation, "Title is empty");
         
         var deck = Deck.CreateNewDeck(command.Title);
-        await _repository.AddDeckAsync(deck);
+        await repository.AddDeckAsync(deck);
         return UseCaseResult<Guid>.Ok(deck.Id);
     }
 }

@@ -1,3 +1,5 @@
+using FlashCards.Domain.Entities;
+
 namespace FlashCards.Application.Common;
 public record UseCaseError(ErrorCode code, string message);
 public class UseCaseResult<T>

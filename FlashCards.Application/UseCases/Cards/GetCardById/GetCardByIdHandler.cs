@@ -17,7 +17,7 @@ public class GetCardByIdHandler(ICardRepository cardRepository)
         if (query.CardId == Guid.Empty)
             return UseCaseResult<Card>.Fail(ErrorCode.Validation,"CardId is required");
         
-        var card = await _cardRepository.GetCard(query.CardId);
+        var card = await _cardRepository.GetCardByIdAsync(query.CardId);
         return card is null ? UseCaseResult<Card>.Fail(ErrorCode.Validation, "Card not found") : UseCaseResult<Card>.Ok(card);
     }
 }
