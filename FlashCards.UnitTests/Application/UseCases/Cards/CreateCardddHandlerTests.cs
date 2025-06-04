@@ -1,3 +1,4 @@
+using FlashCards.Application.Common;
 using FlashCards.Application.UseCases.Cards.CreateCard;
 using FlashCards.Domain.Entities;
 using FlashCards.UnitTests.TestUtilities;
@@ -25,19 +26,24 @@ public class CreateCardHandlerTests : IClassFixture<TestFixture>
         var handler = new CreateCardToDeckHandler(_fixture.DeckRepository.Object, _fixture.CardRepository.Object);
         var command = new CreateCardToDeckCommand(deck.Id, "Q", "A");
         //Act
-        var result = await handler.HandleCommandAsync(command);
+        var result = await handler.Handle(command);
         //Assert
-        Assert.NotEqual(Guid.Empty, result);
+        Assert.NotEqual(Guid.Empty, result.Value);
     }
     [Fact]
     public async Task HandleAsync_DeckNotFound_ShouldThrow()
     {
-        _fixture.DeckRepository.Setup(r => r.GetAsync(It.IsAny<Guid>())).ReturnsAsync((Deck?)null);
-        var handler = new CreateCardToDeckHandler(_fixture.DeckRepository.Object, _fixture.CardRepository.Object);
+        _fixture.DeckRepository
+            .Setup(r => r.GetAsync(It.IsAny<Guid>()))
+            .ReturnsAsync((Deck?)null);
 
+        var handler = new CreateCardToDeckHandler(_fixture.DeckRepository.Object, _fixture.CardRepository.Object);
         var command = new CreateCardToDeckCommand(Guid.NewGuid(), "Q", "A");
 
-        var ex = await Assert.ThrowsAsync<ArgumentException>(() => handler.HandleCommandAsync(command));
-        Assert.Equal("Deck not found", ex.Message);
+        var result = await handler.Handle(command);
+
+        Assert.False(result.Success);
+        Assert.Equal(ErrorCode.Validation, result.Error?.code);
+        Assert.Equal("Deck not found", result.Error?.message);
     }
 }

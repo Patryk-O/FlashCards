@@ -5,7 +5,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\Cards\GetAllCards\" />
     <Folder Include="UseCases\Cards\RemoveCard\" />
     <Folder Include="UseCases\Cards\UpdateCard\" />
     <Folder Include="UseCases\Decks\GetAllDecks\" />

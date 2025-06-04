@@ -46,8 +46,7 @@ public class DeckTests
     {
         var deck = Deck.CreateNewDeck("Initial");
         Card? card = null;
-        var ex = Assert.Throws<ArgumentException>(() => deck.AddCard(card));
-        Assert.Equal("Card cannot be null.", ex.Message);
+        var ex = Assert.Throws<ArgumentNullException>(() => deck.AddCard(card));
+        Assert.Equal("card", ex.ParamName);
     }
-    
 }
