@@ -32,4 +32,10 @@ public class Deck
         ArgumentNullException.ThrowIfNull(card, nameof(card));
         _cards.Add(card);
     }
+
+    public void RemoveCard(Card? card)
+    {
+        ArgumentNullException.ThrowIfNull(card, nameof(card));
+        _cards.Remove(card);
+    }
 }

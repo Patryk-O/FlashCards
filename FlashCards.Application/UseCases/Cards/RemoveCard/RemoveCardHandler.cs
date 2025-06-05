@@ -6,7 +6,7 @@ using FlashCards.Domain.Repositories;
 
 namespace FlashCards.Application.UseCases.Cards.RemoveCard;
 
-public class RemoveCardInDeckHandler(IDeckRepository deckRepository, ICardRepository cardRepository)
+public class RemoveCardHandler(IDeckRepository deckRepository, ICardRepository cardRepository)
     : ICommandHandler<RemoveCardCommand, Guid>
 {
     private readonly IDeckRepository _deckRepository = deckRepository;

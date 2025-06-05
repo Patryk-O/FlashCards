@@ -9,5 +9,5 @@ public interface IDeckRepository
     Task<IReadOnlyCollection<Deck>> GetAllAsync();
     Task RemoveDeckAsync(Deck deck);
     Task RemoveCardFromDeckAsync(Deck deck, Card card);
-    Task UpdateAsync(Deck deck);
+    Task UpdateAsync(Guid deckId,Deck deck);
 }

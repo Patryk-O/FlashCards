@@ -13,8 +13,6 @@ public class CreateDeckHandler(IDeckRepository repository) : ICommandHandler<Cre
     {
         if(command is null)
             return UseCaseResult<Guid>.Fail(ErrorCode.Validation, "Command is null");
-        if(command.Title is null)
-            return UseCaseResult<Guid>.Fail(ErrorCode.Validation, "Title is null");
         if(string.IsNullOrWhiteSpace((command.Title)))
             return UseCaseResult<Guid>.Fail(ErrorCode.Validation, "Title is empty");
         

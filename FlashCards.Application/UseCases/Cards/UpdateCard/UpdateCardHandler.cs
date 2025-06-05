@@ -27,11 +27,11 @@ public class UpdateCardHandler(IDeckRepository deckRepository, ICardRepository c
         if(deck is null)
             return UseCaseResult<Guid>.Fail(ErrorCode.Validation, "Deck not found");
         
-        var card = Card.CreateNewCard(deck.Id, command.Question, command.Answer);
-        if(card is null)
+        var updatedCard = Card.CreateNewCard(deck.Id, command.Question, command.Answer);
+        if(updatedCard is null)
             return UseCaseResult<Guid>.Fail(ErrorCode.Validation, "Card validation problem");
         
-        await _cardRepository.UpdateCardAsync(card);
-        return UseCaseResult<Guid>.Ok(card.Id);
+        await _cardRepository.UpdateCardAsync(command.CardId, updatedCard);
+        return UseCaseResult<Guid>.Ok(command.CardId);
     }
 }

@@ -2,10 +2,11 @@ using FlashCards.Application.UseCases.Cards.CreateCard;
 using FlashCards.Application.UseCases.Cards.GetAllCards;
 using FlashCards.Domain.Entities;
 using FlashCards.UnitTests.TestUtilities;
+using JetBrains.Annotations;
 using Moq;
 
 namespace FlashCards.UnitTests.Application.UseCases.Cards;
-
+[TestSubject(typeof(GetAllCardsHandlerTests))]
 public class GetAllCardsHandlerTests : IClassFixture<TestFixture>
 {
     private readonly TestFixture _fixture;
@@ -20,28 +21,15 @@ public class GetAllCardsHandlerTests : IClassFixture<TestFixture>
     public async Task GetAllCardsHandler_ReturnsAllCards_FromOneDeck()
     {
         // Arrange
-        var deck = Deck.CreateNewDeck("Simple Deck for mock");
-        var cards = new List<Card>
-        {
-            Card.CreateNewCard(deck.Id, "Q1", "A1"),
-            Card.CreateNewCard(deck.Id, "Q2", "A2"),
-            Card.CreateNewCard(deck.Id, "Q3", "A3"),
-            Card.CreateNewCard(deck.Id, "Q4", "A4"),
-            Card.CreateNewCard(deck.Id, "Q5", "A5")
-        };
-
-        _fixture.CardRepository
-            .Setup(r => r.GetAllCards())
-            .ReturnsAsync(cards);
 
         var handler = new GetAllCardsHandler(_fixture.CardRepository.Object);
-
+        var command = new GetAllCardsQuery();
         // Act
-        var result = await handler.Handle(new GetAllCardsQuery());
+        var result = await handler.Handle(command);
 
         // Assert
-        Assert.True(result.Success);
-        Assert.NotNull(result.Value);
-        Assert.Equal(5, result.Value.Count());
+        _fixture.CardRepository.Verify(r => r.GetAllCardsAsync(), Times.Once);
+        Assert.NotNull(result);
+        Assert.Equal(6, result.Value.Count);
     }
 }

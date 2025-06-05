@@ -8,5 +8,5 @@ public interface ICardRepository
     Task<Card?> GetCardByIdAsync(Guid id);
     Task<IReadOnlyCollection<Card>> GetAllCardsAsync();
     Task RemoveCardAsync(Card card);
-    Task UpdateCardAsync(Card card);
+    Task UpdateCardAsync(Guid cardId,Card card);
 }
