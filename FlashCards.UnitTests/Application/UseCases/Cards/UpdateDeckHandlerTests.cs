@@ -9,11 +9,11 @@ using Moq;
 namespace FlashCards.UnitTests.Application.UseCases.Cards;
 
 [TestSubject(typeof(UpdateCardHandler))]
-public class UpdateCardHandlerTests : IClassFixture<TestFixture>
+public class UpdateDeckHandlerTests : IClassFixture<TestFixture>
 {
     private readonly TestFixture _fixture;
 
-    public UpdateCardHandlerTests(TestFixture fixture)
+    public UpdateDeckHandlerTests(TestFixture fixture)
     {
         _fixture = fixture;
         _fixture.ResetMocks();

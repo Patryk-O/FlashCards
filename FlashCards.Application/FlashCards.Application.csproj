@@ -4,11 +4,6 @@
     <ProjectReference Include="..\FlashCards.Domain\FlashCards.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UseCases\Decks\RemoveDeck\" />
-    <Folder Include="UseCases\Decks\UpdateDeck\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

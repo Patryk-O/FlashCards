@@ -54,9 +54,6 @@ public class RemoveCardHandlerTests : IClassFixture<TestFixture>
     public async Task HandleAsync_CardNotFound_ShouldThrow()
     {
         //Arrange
-        _fixture.DeckRepository
-            .Setup(r => r.GetAsync(It.IsAny<Guid>()))
-            .ReturnsAsync((Deck?)null);
 
         var handler = new CreateCardToDeckHandler(_fixture.DeckRepository.Object, _fixture.CardRepository.Object);
         var command = new CreateCardToDeckCommand(Guid.NewGuid(), "Q", "A");

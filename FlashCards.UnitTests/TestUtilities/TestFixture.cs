@@ -55,6 +55,7 @@ public class TestFixture
 
     private void SetupMocks()
     {
+        //Card Setup
         CardRepository.Setup(r => r.AddCardAsync(It.IsAny<Card>()))
             .Callback<Card>(card => TestCards.Add(card));
 
@@ -67,6 +68,7 @@ public class TestFixture
         
         CardRepository.Setup(r => r.GetCardByIdAsync(It.IsAny<Guid>()))
             .Returns<Guid>((cardId) => Task.FromResult(TestCards.Find(x => x.Id == cardId)));
+        
         CardRepository.Setup(r => r.GetAllCardsAsync())
             .Returns(() => Task.FromResult((IReadOnlyCollection<Card>)TestCards.AsReadOnly()));
         
@@ -77,25 +79,30 @@ public class TestFixture
                 TestCards.Add(Card);
             })
             .Returns(Task.CompletedTask);
-        
-
+        //Deck Setup
         DeckRepository.Setup(r => r.GetAsync(It.IsAny<Guid>()))
             .Returns<Guid>((deckId) => Task.FromResult(TestDecks.Find(x => x.Id == deckId)));
+        
         DeckRepository.Setup(r => r.GetAllAsync())
-            .Returns(() => Task.FromResult((IReadOnlyCollection<Card>)TestDecks.AsReadOnly()));
+            .Returns(() => Task.FromResult((IReadOnlyCollection<Deck>)TestDecks.AsReadOnly()));
+        
         DeckRepository.Setup(r => r.AddDeckAsync(It.IsAny<Deck>()))
+            
             .Callback<Deck>(deck => TestDecks.Add(deck))
             .Returns(Task.CompletedTask);
+        
         DeckRepository.Setup(r => r.RemoveDeckAsync(It.IsAny<Deck>()))
             .Callback<Deck>(deck =>
             {
                 TestDecks.Remove(deck);
             })
             .Returns(Task.FromResult(TestCards.FirstOrDefault()));
-        DeckRepository.Setup(r => r.UpdateAsync(It.IsAny<Deck>()))
-            .Callback<Deck>(deck =>
+        
+        DeckRepository.Setup(r => r.UpdateAsync(It.IsAny<Guid>(),It.IsAny<Deck>()))
+            .Callback<Guid, Deck>((deckId, deck) =>
             {
-                TestDecks.Remove(deck);
+                TestDecks.Remove(TestDecks.First(x => x.Id == deckId));
+                TestDecks.Add(deck);
             })
             .Returns(Task.FromResult(TestCards.FirstOrDefault()));
 
